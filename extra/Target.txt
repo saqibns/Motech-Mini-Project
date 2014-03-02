@@ -1,0 +1,7 @@
+﻿King=राजा
+Queen=रानी
+
+Mango=मैंगो
+Banana=केले
+
+Wind=पवन

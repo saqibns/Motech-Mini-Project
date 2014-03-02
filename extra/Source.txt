@@ -1,0 +1,7 @@
+﻿King=king
+Queen=queen
+
+Mango=mango
+Banana=banana
+
+Wind=wind
