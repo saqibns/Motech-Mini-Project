@@ -2,33 +2,82 @@ import java.io.*;
 import java.util.*;
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
+import java.net.UnknownHostException;
 
 class Main
 {
 	
 	public static void main(String args[])throws Exception
 	{
+        String src, dest, sLang, dLang;
 		try
 		{
-			Translate.setClientId("Your client ID here");
-			Translate.setClientSecret("Your client secret here");
-			Language.setClientId("MOTECH_GSoC2014");
-			Language.setClientSecret("LMzqN/ytBZ1LFyHJYIKWujglpiWwgQ7uOjZTOFx+nHk=");
-			
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String src = br.readLine();				//Name of the source file
-			String dest = br.readLine();			//Name of the destination file
-			String sLang = br.readLine();			//Name of the source language
-			String dLang = br.readLine();			//Name of the destination language
-			
-			Main M = new Main();
-			M.convert(src, dest, M.determine(sLang.toUpperCase()), M.determine(dLang.toUpperCase()));
+			Translate.setClientId("Client ID");
+			Translate.setClientSecret("Client Secret");
+			Language.setClientId("Client ID");
+			Language.setClientSecret("Client Secret");
+
+            if(args.length == 4)
+            {
+                src = args[0];
+                dest = args[1];
+                sLang = args[2];
+                dLang = args[3];
+
+            }
+
+
+
+			else
+            {
+                if(args.length>0 && args.length<4)
+                {
+                    System.out.println("Invalid number of arguments");
+                }
+			    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                System.out.print("Source file path: ");
+			    src = br.readLine();			//Name of the source file
+                System.out.print("Destination file path: ");
+			    dest = br.readLine();			//Name of the destination file
+                System.out.print("Source language: ");
+			    sLang = br.readLine();			//Name of the source language
+                System.out.print("Target language: ");
+			    dLang = br.readLine();			//Name of the destination language
+            }
+
+
+
+            Main M = new Main();
+            Language sL = M.determine(sLang.toUpperCase());
+            Language dL = M.determine(dLang.toUpperCase());
+            boolean one, two;
+            one = sL == null;
+            two = dL == null;
+            if(one || two)
+            {
+                if (one)
+                    System.out.println("Invalid Source Language");
+                if (two)
+                    System.out.println("Invalid Target Language");
+
+            }
+
+            else
+			    M.convert(src, dest, sL, dL);
 			
 			
 		}
+        catch (UnknownHostException e)
+        {
+            System.out.println("\nIP address of the host could not be determined.");
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("\nError in accessing file.");
+        }
 		catch(Exception e)
 		{
-			System.out.println("Exception");
+			System.out.println("\nAn error occurred while translating.");
 		}
 	}
 	
@@ -50,7 +99,10 @@ class Main
 		modified = new ArrayList<String>();
 		String sb = null;
 		//System.out.println("Size:"+before.size());
-		for(int i=0; i<before.size(); i++)
+        float percent = 0F;
+        int total = before.size();
+        System.out.print("Translating: 0%");
+		for(int i=0; i<total; i++)
 		{
 			sb = "";
 			String s = before.get(i);
@@ -62,10 +114,16 @@ class Main
 			else
 			modified.add(s);
 			//System.out.println(modified.get(i));
+            percent = i*100/total;
+            //System.out.println(percent);
+            System.out.print("\rTranslating: "+(int)percent+"%\t");
 			
 		}
-		
+        System.out.print("\rDone Translating\t\t");
+        System.out.println();
+		System.out.println("Writing to file...");
 		FM.writeToFile(destpath, modified);
+        System.out.println("Done writing.");
 	}
 	
 	//Determine the respective languages in terms of enums
@@ -113,7 +171,7 @@ class Main
 		else if (lang.equals("UKRAINIAN"))tmp = Language.UKRAINIAN;
 		else if (lang.equals("URDU"))tmp = Language.URDU;
 		else if (lang.equals("VIETNAMESE"))tmp = Language.VIETNAMESE;
-		else tmp = Language.ENGLISH;
+		else tmp = null;
 		
 		return tmp;
 	}

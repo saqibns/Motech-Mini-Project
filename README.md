@@ -13,13 +13,8 @@ How to use
 2. Type the command "set CLASSPATH=%CLASSPATH%;../translation-api;"
 3. Navigate to directory "src"
 4. Type the command "javac Main.java"
-5. Type the command "java Main"
-6. Enter the values in the following order:
-	a. Source File Path 
-	b. Destination File Path
-	c. Source Language
-	d. Target Language
-	(Press return after each parameter)
+5. Type the command "java Main" and follow the prompts
+6. Alternatively, the command line argument version can be used: type the command "java Main <source-path> <destination-path> <source-language> <target-language>"
 
 Program Description
 ====================
@@ -34,3 +29,11 @@ The program is developed using the Bing translation libraries. The API is provid
 https://github.com/boatmeme/microsoft-translator-java-api
 
 It is available as a JAR file from the link above. The contents of JAR have been extracted and placed under the directory named 'translation-api.'
+
+Improvements
+=============
+
+1. The program now accepts command line arguments.
+2. Prompts that indicate what values are to be entered, in case the user does not use the command line arguments to excute the program.
+3. If invalid values are entered for either of the source or target languages, an error is displayed.
+4. While translating, it displays the status of the file being translated in terms of percentage.
