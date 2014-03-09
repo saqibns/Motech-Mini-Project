@@ -14,7 +14,8 @@ How to use
 3. Navigate to directory "src"
 4. Type the command "javac Main.java"
 5. Type the command "java Main" and follow the prompts
-6. Alternatively, the command line argument version can be used: type the command "java Main <source-path> <destination-path> <source-language> <target-language>"
+6. Alternatively, the command line argument version can be used: type the command:
+	"java Main [source-path] [target-path] [source-language] [target-language]"
 
 Program Description
 ====================
