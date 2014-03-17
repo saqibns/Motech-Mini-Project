@@ -53,9 +53,7 @@ Contents of the file 'Source.txt'
 	Mango=mango
 	Banana=banana
 	
-	Wind=wind
-	
-
+	Wind=wind	
 <br/>
 The file was translated in Hindi and the contents were saved to a file named 'Target.txt', whose contents are as follows:
 Contents of the file 'Target.txt':
@@ -68,6 +66,5 @@ Contents of the file 'Target.txt':
 	Banana=केले
 	
 	Wind=पवन
-
 <br/>	
 The files 'messages.properties' and 'modified_messages.properties' (under the 'extra' directory) also depict the same. 
