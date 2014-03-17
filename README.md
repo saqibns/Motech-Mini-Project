@@ -42,29 +42,26 @@ Improvements
 Examples
 =========
 Some examples of the files already translated using this script can be found in the directory named 'extra.'
-
 Nevertheless, here is what the application of the script to the file 'Source.txt' did:
-
+<br/>
 Contents of the file 'Source.txt'
-
-King=king
-Queen=queen
-
-Mango=mango
-Banana=banana
-
-Wind=wind
+<br/>
+King=king<br/>
+Queen=queen<br/>
+<br/>
+Mango=mango<br/>
+Banana=banana<br/>
+<br/>
+Wind=wind<br/>
 
 The file was translated in Hindi and the contents were saved to a file named 'Target.txt', whose contents are as follows:
-
-Contents of the file 'Target.txt'
-
-King=राजा
-Queen=रानी
-
-Mango=मैंगो
-Banana=केले
-
-Wind=पवन
+Contents of the file 'Target.txt':<br/>
+King=राजा<br/>
+Queen=रानी<br/>
+<br/>
+Mango=मैंगो<br/>
+Banana=केले<br/>
+<br/>
+Wind=पवन<br/>
 
 The files 'messages.properties' and 'modified_messages.properties' (under the 'extra' directory) also depict the same. 
