@@ -38,3 +38,33 @@ Improvements
 2. Prompts that indicate what values are to be entered, in case the user does not use the command line arguments to excute the program.
 3. If invalid values are entered for either of the source or target languages, an error is displayed.
 4. While translating, it displays the status of the file being translated in terms of percentage.
+
+Examples
+=========
+Some examples of the files already translated using this script can be found in the directory named 'extra.'
+
+Nevertheless, here is what the application of the script to the file 'Source.txt' did:
+
+Contents of the file 'Source.txt'
+
+King=king
+Queen=queen
+
+Mango=mango
+Banana=banana
+
+Wind=wind
+
+The file was translated in Hindi and the contents were saved to a file named 'Target.txt', whose contents are as follows:
+
+Contents of the file 'Target.txt'
+
+King=राजा
+Queen=रानी
+
+Mango=मैंगो
+Banana=केले
+
+Wind=पवन
+
+The files 'messages.properties' and 'modified_messages.properties' (under the 'extra' directory) also depict the same. 
